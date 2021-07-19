@@ -1,0 +1,5 @@
+var _router = require("./router");
+(function() {
+    const root = document.querySelector(".root");
+    _router.initRouter(root);
+})();

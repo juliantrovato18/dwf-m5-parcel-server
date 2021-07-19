@@ -1,0 +1,16 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initinstructionsPage", ()=>initinstructionsPage
+);
+const imgFondo = require("url:../../../src/img/fondo.png");
+function initinstructionsPage(params) {
+    const div = document.createElement("div");
+    div.innerHTML = `\n        <section class = "section">\n        <div class="container-title">\n        <custom-text variant="body">Presioná jugar\n        y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.</custom-text>\n        </div>\n        <div class="container-button">\n        <button-comp class="button">¡Jugar!</button-comp>\n        </div>\n        <div class="contenedor-ppt">\n        <custom-tijera class="elementos"></custom-tijera>\n        <custom-piedra class="elementos"></custom-piedra>\n        <custom-papel class="elementos"></custom-papel>\n        </div>\n        </section>\n    `;
+    const style = document.createElement("style");
+    style.innerHTML = `\n        * {\n            box-sizing: border-box;\n        }\n        body {\n            margin: 0;\n         }\n  \n        .contenedor-ppt {\n            display: flex;\n            flex-direction: row;\n            margin: 0px;\n         }\n         @media (min-width:700px){\n             .contenedor-ppt{\n                 display: flex;\n                 flex-direction: row;\n                 align-items: flex-end;\n\n             }\n         }\n  \n        .elementos {\n            padding: 10px;\n            position: relative;\n            top: 90px;\n        }\n        .container-title {\n            margin: 30px 20px;\n        }\n        .container-button {\n            min-width: 320px;\n            padding: 10px;\n            align-items: center;\n            justify-content: center;\n        }\n        .section {\n            background-image:url(${imgFondo});\n            display: flex;\n            min-height: 667px;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n        }\n        @media (min-width:700px){\n            .section{\n                background-image:url(${imgFondo});\n                height: 100vh;\n                display:flex;\n                flex-direction: column;\n                justify-content: space-around;\n\n            }\n        }\n  \n    \n    `;
+    div.appendChild(style);
+    div.querySelector(".button").addEventListener("click", ()=>{
+        params.goTo("/play");
+    });
+    return div;
+}

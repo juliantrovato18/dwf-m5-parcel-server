@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.contenedor-ppt {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.elementos {
+  padding: 20px;
+}
+.container-title {
+  margin: 30px 20px;
+}
+.container-button {
+  min-width: 320px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=index.HASH_REF_a844a2b56b37c9bd56209580b38e873a.css.map */

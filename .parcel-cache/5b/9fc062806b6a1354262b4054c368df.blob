@@ -1,0 +1,22 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "button", ()=>button
+);
+function button() {
+    class Button extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const button1 = document.createElement("button");
+            const style = document.createElement("style");
+            button1.className = "root";
+            style.innerHTML = `\n                .root{\n                    width: 140px;\n                    height: 50px;\n                    border: solid 2px blue;\n                    border-radius: 1px;\n                }\n            `;
+        }
+    }
+    customElements.define("button", Button);
+}

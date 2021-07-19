@@ -1,0 +1,28 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "contadorComp", ()=>contadorComp
+);
+let counter = 4;
+function contadorComp() {
+    class ContadorComp extends HTMLElement {
+        constructor(){
+            super();
+            this.let = counter = 4;
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const intervalo = setInterval(()=>{
+                counter--;
+                div.innerHTML = `\n            <h1>${counter}</h1>\n        `;
+                console.log("hola" + counter);
+                if (counter <= 0) clearInterval(intervalo);
+            }, 1000);
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("contador-comp", ContadorComp);
+}

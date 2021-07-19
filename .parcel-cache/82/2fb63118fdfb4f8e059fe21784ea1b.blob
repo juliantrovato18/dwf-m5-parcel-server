@@ -1,0 +1,9 @@
+var _text = require("./components/text");
+var _button = require("./components/button");
+var _router = require("./router");
+(function() {
+    _text.customText();
+    _button.button();
+    const root = document.querySelector(".root");
+    _router.initRouter(root);
+})();

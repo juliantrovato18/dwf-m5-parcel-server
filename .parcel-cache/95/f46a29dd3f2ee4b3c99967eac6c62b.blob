@@ -1,0 +1,21 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "papelComp", ()=>papelComp
+);
+function papelComp() {
+    class Papel extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            div.innerHTML = `\n                <img src="./papel.png"> \n            `;
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("custom-papel", Papel);
+}

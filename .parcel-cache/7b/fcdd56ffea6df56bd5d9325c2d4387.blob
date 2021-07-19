@@ -1,0 +1,43 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initRouter", ()=>initRouter
+);
+var _welcomePage = require("./pages/welcome-page");
+var _instructions = require("./pages/instructions");
+const routes = [
+    {
+        path: /\/welcome/,
+        component: _welcomePage.initWelcomePage
+    },
+    {
+        path: /\/instructions/,
+        component: _instructions.initinstructionsPage
+    },
+    {
+        path: /\/play/,
+        component: initiPlayPage
+    }, 
+];
+function initRouter(container) {
+    function goTo(path) {
+        history.pushState({
+        }, "", path);
+        handleRoute(path);
+    }
+    function handleRoute(route) {
+        console.log("el handle recibio una nueva ruta", route);
+        for (const r of routes)if (r.path.test(route)) {
+            const el = r.component({
+                goTo: goTo
+            });
+            if (container.firstChild) container.firstChild.remove();
+            container.appendChild(el);
+        }
+    }
+    handleRoute(location.pathname);
+    if (location.pathname == "/") goTo("/welcome");
+    else handleRoute(location.pathname);
+    window.onpopstate = function() {
+        handleRoute(location.pathname);
+    };
+}

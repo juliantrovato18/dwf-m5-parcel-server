@@ -1,0 +1,20 @@
+function $c502549798fc7be8c964eb0b31c0f384$export$dcf4752d7d2b9438() {
+    class Win extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            div.innerHTML = `\n                <img class="img" src="./ganar.png"> \n            `;
+            style.innerHTML = `\n                .img{\n                    width: 230px;\n                    height: 230px;\n                }\n            `;
+            shadow.appendChild(div);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("custom-win", Win);
+}

@@ -1,0 +1,25 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "handleRoute", ()=>handleRoute
+);
+parcelHelpers.export(exports, "initRouter", ()=>initRouter
+);
+function handleRoute(route) {
+    console.log("el handle recibio una nueva ruta", route);
+    const contenedorEl = document.querySelector(".root");
+    const routes = [
+        {
+            path: /\/welcome/,
+            component: null
+        }, 
+    ];
+    for (const r of routes)if (r.path.test(route)) {
+        const el = r.component();
+        const contentEl = document.querySelector(".content");
+        if (contentEl.firstChild) contentEl.firstChild.remove();
+        contentEl.appendChild(el);
+    }
+}
+function initRouter(container) {
+    handleRoute(location.pathname);
+}

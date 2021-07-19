@@ -1,0 +1,32 @@
+import   "682023deaa87df143315a36c69e03ab6:url:../../../src/img/tijeracolor.png";
+function $682023deaa87df143315a36c69e03ab6$export$7a328158909be750() {
+    class Tijera extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const variant = this.getAttribute("variant") || "small";
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            div.innerHTML = `\n                <img variant="big" class="tijeras" src=${$682023deaa87df143315a36c69e03ab6$import$e59a5cd68970156e}> \n            `;
+            style.innerHTML = `\n            .big{\n                width: 157px;\n                height: 300px;\n            }\n            .small{\n                width: 110px;\n                height: 230px;\n            }\n            .tijeras{\n                width:100%;\n            }\n            `;
+            const elegido = div.querySelector(".tijeras");
+            elegido.addEventListener("click", (r)=>{
+                const evento = new CustomEvent("change", {
+                    detail: {
+                        myPlay: "tijeras"
+                    }
+                });
+                this.dispatchEvent(evento);
+            });
+            div.className = variant;
+            shadow.appendChild(div);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("custom-tijera", Tijera);
+}

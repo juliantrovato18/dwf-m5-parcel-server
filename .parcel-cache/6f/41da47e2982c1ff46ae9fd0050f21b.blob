@@ -1,0 +1,41 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initPageResults", ()=>initPageResults
+);
+var _state = require("../../state");
+function initPageResults(params) {
+    const div = document.createElement("div");
+    const style = document.createElement("style");
+    const lastState = _state.state.getState();
+    const myState = lastState.currentGame.myPlay;
+    const computerState = lastState.currentGame.computerPlay;
+    const myPlay = document.createElement("div");
+    const computerPlay = document.createElement("div");
+    if (myState == "piedra") myPlay.innerHTML = `\n         <custom-piedra variant= "big" class= "my-play"></custom-piedra>\n         `;
+    if (myState == "papel") myPlay.innerHTML = `\n         <custom-papel variant="big" class= "my-play"></custom-papel>\n         `;
+    if (myState == "tijeras") myPlay.innerHTML = `\n        <custom-tijera variant="big" class="my-play"></custom-tijera>\n        `;
+    if (computerState == "piedra") computerPlay.innerHTML = `\n        <custom-piedra variant= "big" class= "computer-play"></custom-piedra>\n        `;
+    if (computerState == "papel") computerPlay.innerHTML = `\n        <custom-papel variant= "big" class= "computer-play></custom-papel\n        `;
+    if (computerState == "tijeras") computerPlay.innerHTML = `\n        <custom-tijera variant= "big" class= "computer-play"></custom-tijera>\n        `;
+    div.innerHTML = `\n        <div class = "container-all">\n        <div class="my-play"></div>\n        <div class="computer-play"></div>\n        <section class= "section">\n        <custom-win></custom-win>\n        <custom-score></custom-score>\n        <div class= "container-button">\n        <button-comp class="button">Volver A Jugar</button-comp>\n        </div>\n        </section>\n        </div>\n    `;
+    style.innerHTML = `\n        *{\n            box-sizing:border-box;\n        }\n        body{\n            margin:0;\n        }\n        \n        .section{\n            background-color: #888949E5;\n\n            display: none;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            min-width:375px;\n            min-height: 667px;\n            position: absolute;\n            top: 0px;\n            bottom: 0px;\n            right: 0px;\n            left: 0px;\n        }\n        }\n        .container-button{\n            padding: 20px;\n            min-width: 300px;\n        }\n        .my-play{\n            min-width: 157px;\n            min-height: 300px;\n        }\n        .container-all{\n            display:flex;\n            flex-direction: column-reverse;\n            min-height:667px;\n            justify-content: space-between;\n            align-items: center;\n        }\n        .computer-play{\n            transform: rotate(180deg);\n        }\n        \n    `;
+    const intevarlo = setInterval(()=>1000
+    );
+    const section = div.querySelector(".section");
+    const jugadas = div.querySelector("container-all");
+    setTimeout(()=>{
+        clearInterval(intevarlo);
+        if (_state.state.whoWins(_state.state.getState().currentGame.myPlay, _state.state.getState().currentGame.computerPlay) == "ganaste") {
+            section.style.display = "inherit";
+            jugadas.style.display = "none";
+        }
+        _state.state.whoWins(_state.state.getState().currentGame.myPlay, _state.state.getState().currentGame.computerPlay);
+    }, 1000);
+    div.querySelector(".computer-play").appendChild(computerPlay);
+    div.querySelector(".my-play").appendChild(myPlay);
+    div.appendChild(style);
+    div.querySelector(".button").addEventListener("click", ()=>{
+        params.goTo("/instructions");
+    });
+    return div;
+}

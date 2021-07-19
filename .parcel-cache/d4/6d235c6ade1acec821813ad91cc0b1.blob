@@ -1,0 +1,25 @@
+import   "d52976ddd03324c7b65227f3ed01588c:./components/text";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/button";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/piedra";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/tijera";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/papel";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/score";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/win";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/lose";
+import   "d52976ddd03324c7b65227f3ed01588c:./components/contador";
+import   "d52976ddd03324c7b65227f3ed01588c:./router";
+import   "d52976ddd03324c7b65227f3ed01588c:./state";
+(function() {
+    $d52976ddd03324c7b65227f3ed01588c$import$76e5a6330b618eea$c837a8b98c265ae3.init();
+    $d52976ddd03324c7b65227f3ed01588c$import$fc09b34ef7e0a9e3$7c24c61925603821();
+    $d52976ddd03324c7b65227f3ed01588c$import$c154914a483c34ed$dcf4752d7d2b9438();
+    $d52976ddd03324c7b65227f3ed01588c$import$7ad0326b1cd806db$d7080065966e02e8();
+    $d52976ddd03324c7b65227f3ed01588c$import$c31a89bfd937104c$5db34b6d89f98b33();
+    $d52976ddd03324c7b65227f3ed01588c$import$26dcbbf210da68f1$7a328158909be750();
+    $d52976ddd03324c7b65227f3ed01588c$import$564fc3f80a9cdc3e$6dd778f3fd3bf8a();
+    $d52976ddd03324c7b65227f3ed01588c$import$58f959d0050c685c$3e15b9da55c89731();
+    $d52976ddd03324c7b65227f3ed01588c$import$1872139eba5baff3$d3bbb35d17d7967a();
+    $d52976ddd03324c7b65227f3ed01588c$import$d6788d9da377fdbf$a2218795261527d2();
+    const root = document.querySelector(".root");
+    $d52976ddd03324c7b65227f3ed01588c$import$c1b686ccb363b496$f03b0d45d4202f55(root);
+})();

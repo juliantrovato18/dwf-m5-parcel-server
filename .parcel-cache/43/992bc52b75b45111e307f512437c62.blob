@@ -1,0 +1,24 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "winComp", ()=>winComp
+);
+function winComp() {
+    class Win extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            div.innerHTML = `\n                <img class="img" src="./star.png"> \n            `;
+            style.innerHTML = `\n                .img{\n                    width: 200px;\n                    height: 200px;\n                }\n            `;
+            shadow.appendChild(div);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("custom-win", Win);
+}

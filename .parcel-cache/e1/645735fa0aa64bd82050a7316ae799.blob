@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.contenedor-ppt {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.elementos {
+  padding: 20px;
+}
+.container-title {
+  margin: 30px 20px;
+}
+.container-button {
+  max-width: 320px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}

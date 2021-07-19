@@ -1,0 +1,21 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "tijeraComp", ()=>tijeraComp
+);
+function tijeraComp() {
+    class Tijera extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            div.innerHTML = `\n                <img class"tijera" src="tijera.png"> \n            `;
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("custom-tijera", Tijera);
+}

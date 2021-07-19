@@ -1,0 +1,1 @@
+module.exports = require('./bundle-url').getBundleURL() + "empatepng.HASH_REF_32ea7a599d0fd1aa3968347898e1ba48.png";

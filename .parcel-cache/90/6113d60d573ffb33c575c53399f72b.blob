@@ -1,0 +1,50 @@
+import   "fc98c8e5b259811bd12e411bf3486ae6:./pages/welcome-page";
+import   "fc98c8e5b259811bd12e411bf3486ae6:./pages/instructions";
+import   "fc98c8e5b259811bd12e411bf3486ae6:./pages/play";
+import   "fc98c8e5b259811bd12e411bf3486ae6:./pages/results-win";
+import   "fc98c8e5b259811bd12e411bf3486ae6:./pages/results-lose";
+const $fc98c8e5b259811bd12e411bf3486ae6$var$routes = [
+    {
+        path: /\/welcome/,
+        component: $fc98c8e5b259811bd12e411bf3486ae6$import$5043cbab694acad2$e1a69f776931ae1b
+    },
+    {
+        path: /\/instructions/,
+        component: $fc98c8e5b259811bd12e411bf3486ae6$import$9017b80785c1f2a4$8e8195a16588529
+    },
+    {
+        path: /\/play/,
+        component: $fc98c8e5b259811bd12e411bf3486ae6$import$b4695a85e3abe38f$458810485c8c846f
+    },
+    {
+        path: /\/results/,
+        component: $fc98c8e5b259811bd12e411bf3486ae6$import$32618716689ea9bf$341056cef746e4a8
+    },
+    {
+        path: /\/resultslose/,
+        component: $fc98c8e5b259811bd12e411bf3486ae6$import$2473f5fa9148618a$226378bc368beff8
+    }, 
+];
+function $fc98c8e5b259811bd12e411bf3486ae6$export$f03b0d45d4202f55(container) {
+    function goTo(path) {
+        history.pushState({
+        }, "", path);
+        handleRoute(path);
+    }
+    function handleRoute(route) {
+        console.log("el handle recibio una nueva ruta", route);
+        for (const r of $fc98c8e5b259811bd12e411bf3486ae6$var$routes)if (r.path.test(route)) {
+            const el = r.component({
+                goTo: goTo
+            });
+            if (container.firstChild) container.firstChild.remove();
+            container.appendChild(el);
+        }
+    }
+    handleRoute(location.pathname);
+    if (location.pathname == "/") goTo("/welcome");
+    else handleRoute(location.pathname);
+    window.onpopstate = function() {
+        handleRoute(location.pathname);
+    };
+}

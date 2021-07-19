@@ -1,0 +1,22 @@
+import   "59d17d1fe2bb84384d4cede0bc7bf583:../../state";
+function $59d17d1fe2bb84384d4cede0bc7bf583$export$d3bbb35d17d7967a() {
+    class Score extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            const score = $59d17d1fe2bb84384d4cede0bc7bf583$import$e1bed94edfa07990$c837a8b98c265ae3.getScore();
+            div.innerHTML = `\n                <div class="container">\n                <h3 class="title">Score</h3>\n                <custom-text class="text" variant="body">Vos: ${score.myScore}</custom-text>\n                <custom-text class="text" variant="body">Maquina: ${score.computerScore}</custom-text>\n                </div> \n            `;
+            style.innerHTML = `\n                .container{\n                    display: flex;\n                    flex-direction: column;\n                    border: solid black 5px;\n                    border-radius: 2px;\n                    min-width: 250px;\n                    min-height: 210px;\n                }\n                .title{\n                    text-align: center;\n                    font-weight: 700;\n                    font-size: bold;\n\n                }\n                .text{\n                    text-align: right;\n                    padding: 10px;\n\n                }\n            `;
+            shadow.appendChild(div);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("custom-score", Score);
+}

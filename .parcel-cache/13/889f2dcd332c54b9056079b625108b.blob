@@ -1,0 +1,27 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initPageResults", ()=>initPageResults
+);
+var _state = require("../../state");
+function initPageResults(params) {
+    const div = document.createElement("div");
+    const style = document.createElement("style");
+    const lastState = _state.state.getState();
+    const myState = lastState.currentGame.myPlay;
+    const computerState = lastState.currentGame.computerPlay;
+    const myPlay = document.createElement("div");
+    const computerPlay = document.createElement("div");
+    if (myState == "piedra") {
+        myPlay.innerHTML = `\n         <custom-piedra class= "my-play"></custom-piedra>\n         `;
+        if (myState == "papel") myPlay.innerHTML = `\n         <custom-papel class= "my-play"></custom-papel>\n         `;
+        if (myState == "tijeras") myPlay.innerHTML = `\n         <custom-tijera class="my play"></custom-tijera>\n         `;
+    }
+    div.innerHTML = `\n        <div class = "container-all">\n        <div class="my-play"></div>\n        <section class= "section">\n        <custom-win></custom-win>\n        <custom-score></custom-score>\n        <div class= "container-button">\n        <button-comp class="button">Volver A Jugar</button-comp>\n        </div>\n        </section>\n        </div>\n    `;
+    style.innerHTML = `\n        *{\n            box-sizing:border-box;\n        }\n        body{\n            margin:0;\n        }\n        \n        .section{\n            background-color: #888949E5;\n\n            display: none;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            min-width:375px;\n            min-height: 667px;\n        }\n        .container-button{\n            padding: 20px;\n            min-width: 300px;\n        }\n        \n    `;
+    div.appendChild(myPlay);
+    div.appendChild(style);
+    div.querySelector(".button").addEventListener("click", ()=>{
+        params.goTo("/instructions");
+    });
+    return div;
+}

@@ -1,0 +1,9 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initPageResults", ()=>initPageResults
+);
+function initPageResults(params) {
+    const div = document.createElement("div");
+    div.innerHTML = `\n        <custom-win></custom-win>\n        <custom-score></custom-score>\n        <custom-button>Volver A Jugar</custom-button>\n    `;
+    return div;
+}

@@ -1,0 +1,12 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initWelcomePage", ()=>initWelcomePage
+);
+function initWelcomePage(params) {
+    const div = document.createElement("div");
+    div.innerHTML = `\n    <div class="container-title">\n    <custom-text  variant="title">Piedra, Papel o Tijera</custom-text>\n    </div>\n    <div>\n    <button-comp class="button">Comenzar</button-comp>\n    </div>\n    <div class = "contenedor-ppt">\n    <custom-tijera class="elementos"></custom-tijera>\n    <custom-piedra class="elementos" ></custom-piedra>\n    <custom-papel class="elementos" ></custom-papel>\n    </div>\n    `;
+    div.querySelector(".button").addEventListener("click", ()=>{
+        params.goTo("/instructions");
+    });
+    return div;
+}

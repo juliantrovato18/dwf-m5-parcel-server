@@ -1,0 +1,21 @@
+function $44a36518b5b4ac686c4a924c7a19749c$export$a2218795261527d2() {
+    class Button extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const button = document.createElement("button");
+            const style = document.createElement("style");
+            button.className = "root";
+            style.innerHTML = `\n                .root{\n                    width: 100%;\n                    height: 87px;\n                    background-color: #006CFC;\n                    border: solid 4px blue;\n                    border-radius: 4px;\n                    padding: 20px;\n                }\n            `;
+            button.textContent = this.textContent;
+            shadow.appendChild(button);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("button-comp", Button);
+}

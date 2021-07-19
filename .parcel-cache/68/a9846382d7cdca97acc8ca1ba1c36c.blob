@@ -1,0 +1,32 @@
+import   "b7f34272235fe7d4a0a572b837a20d86:url:../../../src/img/papel1.png";
+function $b7f34272235fe7d4a0a572b837a20d86$export$5db34b6d89f98b33() {
+    class Papel extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const variant = this.getAttribute("variant") || "small";
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            div.innerHTML = `\n                <img variant="big" class="papel" src="${$b7f34272235fe7d4a0a572b837a20d86$import$3412b2e590f404b7}"> \n            `;
+            style.innerHTML = `\n            .big{\n                width: 157px;\n                height: 300px;\n            }\n            .small{\n                width: 110px;\n                height: 230px;\n            }\n            .papel{\n                width:100%;\n            }\n            `;
+            const elegido = div.querySelector(".papel");
+            elegido.addEventListener("click", (r)=>{
+                const evento = new CustomEvent("change", {
+                    detail: {
+                        myPlay: "papel"
+                    }
+                });
+                this.dispatchEvent(evento);
+            });
+            div.className = variant;
+            shadow.appendChild(div);
+            shadow.appendChild(style);
+        }
+    }
+    customElements.define("custom-papel", Papel);
+}

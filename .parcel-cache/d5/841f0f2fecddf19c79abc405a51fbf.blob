@@ -1,0 +1,33 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "tijeraComp", ()=>tijeraComp
+);
+function tijeraComp() {
+    class Tijera extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const variant = this.getAttribute("variant") || "small";
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            const style = document.createElement("style");
+            div.innerHTML = `\n                <img class="tijeras" src="tijera.png"> \n            `;
+            style.innerHTML = `\n            .big{\n                width: 157px;\n                height: 300px;\n            }\n            .small{\n                width: 110px;\n                height: 230px;\n            }\n            .tijeras{\n                width:100%;\n            }\n            `;
+            const elegido = div.querySelector(".tijeras");
+            elegido.addEventListener("click", (r)=>{
+                const evento = new CustomEvent("change", {
+                    detail: {
+                        myPlay: "tijeras"
+                    }
+                });
+                this.dispatchEvent(evento);
+            });
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("custom-tijera", Tijera);
+}

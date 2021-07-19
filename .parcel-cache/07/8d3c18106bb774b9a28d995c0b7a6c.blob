@@ -1,0 +1,18 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "handleRoute", ()=>handleRoute
+);
+parcelHelpers.export(exports, "initRouter", ()=>initRouter
+);
+function handleRoute(route) {
+    const contenedorEl = document.querySelector(".root");
+    const routes = [
+        {
+            path: /\/welcome/,
+            component: null
+        }, 
+    ];
+}
+function initRouter(container) {
+    handleRoute(location.pathname);
+}

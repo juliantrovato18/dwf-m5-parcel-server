@@ -1,0 +1,19 @@
+var _text = require("./components/text");
+var _button = require("./components/button");
+var _piedra = require("./components/piedra");
+var _tijera = require("./components/tijera");
+var _papel = require("./components/papel");
+var _score = require("./components/score");
+var _contador = require("./components/contador");
+var _router = require("./router");
+(function() {
+    _contador.contadorComp();
+    _papel.papelComp();
+    _tijera.tijeraComp();
+    _piedra.piedraComp();
+    _text.customText();
+    _score.scoreComp();
+    _button.button();
+    const root = document.querySelector(".root");
+    _router.initRouter(root);
+})();

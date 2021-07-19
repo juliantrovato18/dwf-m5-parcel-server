@@ -1,0 +1,21 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "piedraComp", ()=>piedraComp
+);
+function piedraComp() {
+    class Piedra extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            div.innerHTML = `\n                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftoppng.com%2Ffree-image%2Fmario-png-super-mario-3d-world-mario-PNG-free-PNG-Images_169983&psig=AOvVaw0pSXF6Hj0i5CjxOWjEHHvj&ust=1625954842472000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCLDU2fr-1vECFQAAAAAdAAAAABAJ"> \n            `;
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("custom-piedra", Piedra);
+}

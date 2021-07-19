@@ -1,0 +1,1 @@
+module.exports = require('./bundle-url').getBundleURL() + "papelcolor.HASH_REF_62bfc488f62c241e35f902fb703fa845.png";

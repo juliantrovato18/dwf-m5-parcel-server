@@ -1,0 +1,22 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "customText", ()=>customText
+);
+function customText() {
+    class TextComponent extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const variant = this.getAttribute("variant") || "body";
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            div.innerHTML = ``;
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("text", TextComponent);
+}
