@@ -1,0 +1,50 @@
+import   "9e876f2cce4bbc7ebf26ded1f367ede6:./pages/welcome-page";
+import   "9e876f2cce4bbc7ebf26ded1f367ede6:./pages/instructions";
+import   "9e876f2cce4bbc7ebf26ded1f367ede6:./pages/play";
+import   "9e876f2cce4bbc7ebf26ded1f367ede6:./pages/results-win";
+import   "9e876f2cce4bbc7ebf26ded1f367ede6:./pages/results-lose";
+const $9e876f2cce4bbc7ebf26ded1f367ede6$var$routes = [
+    {
+        path: /\/welcome/,
+        component: $9e876f2cce4bbc7ebf26ded1f367ede6$import$5043cbab694acad2$e1a69f776931ae1b
+    },
+    {
+        path: /\/instructions/,
+        component: $9e876f2cce4bbc7ebf26ded1f367ede6$import$9017b80785c1f2a4$8e8195a16588529
+    },
+    {
+        path: /\/play/,
+        component: $9e876f2cce4bbc7ebf26ded1f367ede6$import$b4695a85e3abe38f$458810485c8c846f
+    },
+    {
+        path: /\/results/,
+        component: $9e876f2cce4bbc7ebf26ded1f367ede6$import$32618716689ea9bf$341056cef746e4a8
+    },
+    {
+        path: /\/resultslose/,
+        component: $9e876f2cce4bbc7ebf26ded1f367ede6$import$2473f5fa9148618a$226378bc368beff8
+    }, 
+];
+function $9e876f2cce4bbc7ebf26ded1f367ede6$export$f03b0d45d4202f55(container) {
+    function goTo(path) {
+        history.pushState({
+        }, "", path);
+        handleRoute(path);
+    }
+    function handleRoute(route) {
+        console.log("el handle recibio una nueva ruta", route);
+        for (const r of $9e876f2cce4bbc7ebf26ded1f367ede6$var$routes)if (r.path.test(route)) {
+            const el = r.component({
+                goTo: goTo
+            });
+            if (container.firstChild) container.firstChild.remove();
+            container.appendChild(el);
+        }
+    }
+    handleRoute(location.pathname);
+    if (location.pathname == "/") goTo("/welcome");
+    else handleRoute(location.pathname);
+    window.onpopstate = function() {
+        handleRoute(location.pathname);
+    };
+}

@@ -1,1 +1,1 @@
-git@github.com:juliantrovato18/dwf-m5-parcel-server.git
+https://juliantrovato18.github.io/dwf-m5-parcel-server/
