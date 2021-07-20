@@ -1,4 +1,5 @@
 import { state } from "../../state";
+const fondo = require("url:../../../src/img/fondo.png");
 
 export function initiPlayPage(params){
     const div = document.createElement("div");
@@ -24,6 +25,7 @@ export function initiPlayPage(params){
          margin: 0;
          }
         .section {
+            background-image:url(${fondo});
             display: flex;
          flex-direction: column;
          justify-content: space-around;
@@ -33,6 +35,7 @@ export function initiPlayPage(params){
         }
         @media(min-width:700px){
             .section{
+                background-image:url(${fondo});
                 height: 100vh;
             }
         }

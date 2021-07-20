@@ -1,0 +1,1 @@
+module.exports = require('./bundle-url').getBundleURL() + "tijeracolor.HASH_REF_996739dff4b477ca113bd1e03ec48c53.png";

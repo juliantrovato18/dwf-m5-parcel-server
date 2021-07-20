@@ -1,0 +1,1 @@
+module.exports = require('./bundle-url').getBundleURL() + "ganaste.HASH_REF_d60ed1a51b5cfc867ed93f1a353210b3.png";
