@@ -46,8 +46,8 @@ export function initRouter(container: Element) {
     
     }
     handleRoute(location.pathname);
-    location.pathname.replace("/dw2-m5-parcel-server/","");
-    if(location.pathname == "/dw2-m5-parcel-server"){
+    handleRoute(location.pathname.replace("/dwf-m5-parcel-server/", "/welcome"));
+    if(location.pathname == "/dwf-m5-parcel-server"){
     goTo("/welcome");
     }else{
         handleRoute(location.pathname);
