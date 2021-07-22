@@ -62,7 +62,7 @@ export function initPageResults(params){
         
         .section{
             background-color: #888949E5;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
@@ -97,6 +97,7 @@ export function initPageResults(params){
         .my-play{
             min-width: 157px;
             min-height: 300px;
+            
         }
         .container-all{
             display:flex;
@@ -125,8 +126,8 @@ export function initPageResults(params){
         clearInterval(intevarlo)
         if(state.whoWins(state.getState().currentGame.myPlay,state.getState().currentGame.computerPlay)=="ganaste")
         {
-            section.style.display= "";
-            jugadas.style.display= "none";
+            section.style.display= "flex";
+            //jugadas.style.display= "none";
             imagen.src = ganaste;
             
             
@@ -134,6 +135,7 @@ export function initPageResults(params){
         }
         if((state.whoWins(state.getState().currentGame.myPlay,state.getState().currentGame.computerPlay)=="perdiste"))
         {
+            section.style.display = "flex";
             section.style.background = "rgba(137, 73, 73, 0.9)";
             imagen.src = perdiste;
             
@@ -141,10 +143,11 @@ export function initPageResults(params){
         }
         if((state.whoWins(state.getState().currentGame.myPlay,state.getState().currentGame.computerPlay)=="empataste"))
         {
+            section.style.display = "flex";
             section.style.background = "rgba(255, 233, 0, 0.7)";
             imagen.src = empate;
         }
-    },10);
+    },1000);
 
     div.querySelector(".computer-play").appendChild(computerPlay);
     div.querySelector(".my-play").appendChild(myPlay);

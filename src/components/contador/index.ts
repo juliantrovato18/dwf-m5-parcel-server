@@ -15,6 +15,7 @@ class ContadorComp extends HTMLElement {
             .counter{
                 min-width:  60px;
                 min-height: 80px;
+                background-color: white;
                 display: flex;
                 align-items: center;
                 justify-content: center;

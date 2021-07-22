@@ -1,0 +1,23 @@
+import   "f4a0b9cfe9f99bb7ca45d2f8a115b8ba:../../state";
+import   "f4a0b9cfe9f99bb7ca45d2f8a115b8ba:url:../../../src/img/fondo.png";
+function $f4a0b9cfe9f99bb7ca45d2f8a115b8ba$export$458810485c8c846f(params) {
+    const div = document.createElement("div");
+    div.innerHTML = `\n        <section class="section">\n        <div class="container-contador">\n        <contador-comp class ="contador"></contador-comp>\n        </div>\n        <div class="container">\n        <custom-tijera id = "pointer" class="elementos"></custom-tijera>\n        <custom-piedra id = "pointer" class="elementos"></custom-piedra>\n        <custom-papel id = "pointer" class="elementos"></custom-papel>\n        </div>\n        </section>\n        \n    `;
+    const style = document.createElement("style");
+    style.innerHTML = `\n         * {\n         box-sizing: border-box;\n        }\n         body {\n         margin: 0;\n         }\n        .section {\n            background-image:url(${$f4a0b9cfe9f99bb7ca45d2f8a115b8ba$import$cb2b4d2e405bad99});\n            display: flex;\n         flex-direction: column;\n         justify-content: space-around;\n          min-width: 375px;\n         min-height: 667px;\n          background-image: url("//dist/fondo.png");\n        }\n        @media(min-width:700px){\n            .section{\n                background-image:url(${$f4a0b9cfe9f99bb7ca45d2f8a115b8ba$import$cb2b4d2e405bad99});\n                height: 100vh;\n            }\n        }\n  \n        .container {\n         min-width: 370px;\n         min-height: 200px;\n         justify-content: space-around;\n          display: flex;\n          flex-direction: row;\n          align-items: flex end;\n         }\n         .elementos {\n             \n             position:relative;\n             top: 150px;\n\n         }\n    \n    `;
+    console.log($f4a0b9cfe9f99bb7ca45d2f8a115b8ba$import$e1bed94edfa07990$c837a8b98c265ae3.getScore);
+    const pointEl = div.querySelectorAll("#pointer");
+    pointEl.forEach((element)=>{
+        element.addEventListener("change", (e)=>{
+            const evento = new CustomEvent("change", {
+                detail: {
+                    myPlay: e.detail.myPlay
+                }
+            });
+            $f4a0b9cfe9f99bb7ca45d2f8a115b8ba$import$e1bed94edfa07990$c837a8b98c265ae3.setMove(e.detail.myPlay);
+            params.goTo("/results");
+        });
+    });
+    div.appendChild(style);
+    return div;
+}
