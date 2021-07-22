@@ -39,6 +39,10 @@ export function initiPlayPage(params){
                 height: 100vh;
             }
         }
+
+        .container-contador{
+            min-height: 200px;
+        }
   
         .container {
          min-width: 370px;
@@ -58,6 +62,7 @@ export function initiPlayPage(params){
     `
     console.log(state.getScore);
     const pointEl = div.querySelectorAll("#pointer");
+    const contador = div.querySelector(".contador");
     pointEl.forEach(element =>{
         element.addEventListener("change", (e:any)=>{
             const evento = new CustomEvent("change", {detail:{
@@ -69,6 +74,7 @@ export function initiPlayPage(params){
         params.goTo("/results");
         })
     })
+    
     
     div.appendChild(style);
     

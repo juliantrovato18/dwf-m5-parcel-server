@@ -31,6 +31,9 @@ class ContadorComp extends HTMLElement {
         if(counter <=0){
             clearInterval(intervalo);
         }
+        
+        
+        
     },1000);
         shadow.appendChild(div);
         shadow.appendChild(style);
