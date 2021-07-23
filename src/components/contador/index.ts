@@ -5,9 +5,10 @@ class ContadorComp extends HTMLElement {
     constructor() {
       super();
       this.render();
+      
     }
     render(){
-        let counter = 4;
+        let counter = 3;
         const shadow = this.attachShadow({mode: 'open'});
         const div= document.createElement("div");
         const style = document.createElement("style");
@@ -23,22 +24,30 @@ class ContadorComp extends HTMLElement {
             }
         `
         const intervalo= setInterval(()=>{
-            counter --;
+            
         div.innerHTML = `
             <div class= "counter">${counter}</div>
         `
-        console.log( counter);
+        
         if(counter <=0){
             clearInterval(intervalo);
+            const contador = new CustomEvent("change", {detail:{
+                numero:counter,
+            }});
+            this.dispatchEvent(contador);
         }
+            
         
-        
+            counter --;
         
     },1000);
+        
+        
         shadow.appendChild(div);
         shadow.appendChild(style);
         
     }
+
     
   }
   customElements.define("contador-comp", ContadorComp);

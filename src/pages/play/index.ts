@@ -62,17 +62,30 @@ export function initiPlayPage(params){
     `
     console.log(state.getScore);
     const pointEl = div.querySelectorAll("#pointer");
-    const contador = div.querySelector(".contador");
+    let contador:any = div.querySelector(".contador");
+    let boolean = false;
+    
     pointEl.forEach(element =>{
         element.addEventListener("change", (e:any)=>{
+            boolean = true;
             const evento = new CustomEvent("change", {detail:{
             myPlay: e.detail.myPlay
         }})
         
         state.setMove(e.detail.myPlay)
         
+        
         params.goTo("/results");
         })
+    })
+    contador.addEventListener("change", (e:any)=>{
+        
+        console.log("entro al if",e);
+        if(boolean == false){
+            params.goTo("/instructions")
+        }
+        
+
     })
     
     

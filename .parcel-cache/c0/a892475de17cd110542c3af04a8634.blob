@@ -1,0 +1,32 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initiPlayPage", ()=>initiPlayPage
+);
+var _state = require("../../state");
+const fondo = require("url:../../../src/img/fondo.png");
+function initiPlayPage(params) {
+    const div = document.createElement("div");
+    div.innerHTML = `\n        <section class="section">\n        <div class="container-contador">\n        <contador-comp class ="contador"></contador-comp>\n        </div>\n        <div class="container">\n        <custom-tijera id = "pointer" class="elementos"></custom-tijera>\n        <custom-piedra id = "pointer" class="elementos"></custom-piedra>\n        <custom-papel id = "pointer" class="elementos"></custom-papel>\n        </div>\n        </section>\n        \n    `;
+    const style = document.createElement("style");
+    style.innerHTML = `\n         * {\n         box-sizing: border-box;\n        }\n         body {\n         margin: 0;\n         }\n        .section {\n            background-image:url(${fondo});\n            display: flex;\n         flex-direction: column;\n         justify-content: space-around;\n          min-width: 375px;\n         min-height: 667px;\n          background-image: url("//dist/fondo.png");\n        }\n        @media(min-width:700px){\n            .section{\n                background-image:url(${fondo});\n                height: 100vh;\n            }\n        }\n\n        .container-contador{\n            min-height: 200px;\n        }\n  \n        .container {\n         min-width: 370px;\n         min-height: 200px;\n         justify-content: space-around;\n          display: flex;\n          flex-direction: row;\n          align-items: flex end;\n         }\n         .elementos {\n             \n             position:relative;\n             top: 150px;\n\n         }\n    \n    `;
+    console.log(_state.state.getScore);
+    const pointEl = div.querySelectorAll("#pointer");
+    let contador = div.querySelector(".contador");
+    pointEl.forEach((element)=>{
+        element.addEventListener("change", (e)=>{
+            const evento = new CustomEvent("change", {
+                detail: {
+                    myPlay: e.detail.myPlay
+                }
+            });
+            _state.state.setMove(e.detail.myPlay);
+            params.goTo("/results");
+        });
+    });
+    contador.addEventListener("change", (e)=>{
+        e = 0;
+        console.log("salio del if", e);
+    });
+    div.appendChild(style);
+    return div;
+}
