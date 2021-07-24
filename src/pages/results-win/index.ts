@@ -2,6 +2,7 @@ import { state } from "../../state";
 const ganaste = require("url:../../../src/img/ganaste.png");
 const perdiste = require("url:../../../src/img/perdiste.png");
 const empate = require("url:../../../src/img/empatepng.png");
+const fondo = require ("url:../../../src/img/fondo.png");
 
 export function initPageResults(params){
     const div = document.createElement("div");
@@ -61,7 +62,7 @@ export function initPageResults(params){
         }
         
         .section{
-            background-color: #888949E5;
+            background-image:url(${fondo});
             display: none;
             flex-direction: column;
             justify-content: space-evenly;
@@ -100,9 +101,10 @@ export function initPageResults(params){
             
         }
         .container-all{
+            background-image:url(${fondo});
             display:flex;
             flex-direction: column-reverse;
-            min-height:667px;
+            min-height:100vh;
             justify-content: space-between;
             align-items: center;
         }
@@ -127,6 +129,7 @@ export function initPageResults(params){
         if(state.whoWins(state.getState().currentGame.myPlay,state.getState().currentGame.computerPlay)=="ganaste")
         {
             section.style.display= "flex";
+            section.style.background = "#888949E5";
             //jugadas.style.display= "none";
             imagen.src = ganaste;
             

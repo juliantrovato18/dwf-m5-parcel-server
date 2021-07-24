@@ -31,7 +31,7 @@ export function initiPlayPage(params){
          justify-content: space-around;
           min-width: 375px;
          min-height: 667px;
-          background-image: url("//dist/fondo.png");
+         
         }
         @media(min-width:700px){
             .section{
