@@ -56,8 +56,10 @@ export function initiPlayPage(params){
              
              position:relative;
              top: 150px;
+             cursor:pointer;
 
          }
+         
     
     `
     console.log(state.getScore);

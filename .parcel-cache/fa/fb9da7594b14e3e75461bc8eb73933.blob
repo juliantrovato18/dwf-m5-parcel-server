@@ -1,0 +1,17 @@
+function $fcb0444bfd0d3f16184b9da13e6a1828$export$d7080065966e02e8() {
+    class Lose extends HTMLElement {
+        constructor(){
+            super();
+            this.render();
+        }
+        render() {
+            const shadow = this.attachShadow({
+                mode: 'open'
+            });
+            const div = document.createElement("div");
+            div.innerHTML = `\n                <img src="./perder.png"> \n            `;
+            shadow.appendChild(div);
+        }
+    }
+    customElements.define("custom-lose", Lose);
+}
